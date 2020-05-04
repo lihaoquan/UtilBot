@@ -1,16 +1,23 @@
 #include "Core.h"
+#include <iostream>
 
-#include <windows.h>
-#include <mmsystem.h>
-
-int main() {
+int main(int argc, char** argv) {
 
 	// Create an instance of the app
-	UtilBot::App app = UtilBot::App::Get();
-	app.Start();
+	UtilBot::App* app = new UtilBot::App;
+	// Initialize app
+	app->Start();
 
-	PlaySoundA((LPCSTR)"D:\\test.wav", NULL, SND_FILENAME | SND_ASYNC);
-	getchar();
+	TextCommand c("command");
+	c.Execute();
+
+	// TODO if command matches command name, it handles it and executes the function.
+
+	while (app->appRunning) {
+		std::cin >> app->command;
+		app->ProcessCommand();
+		Sleep(1);
+	}
 
 	return 0;
 }

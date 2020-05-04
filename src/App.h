@@ -5,15 +5,13 @@
 namespace UtilBot {
 	class App
 	{
-	private:
-		App() {}
 	public:
-		~App() {}
-		static App& Get() {
-			App instance;
-			return instance;
-		}
+		App();
+		~App();
 		void Start();
+		void ProcessCommand();
+		char* command;
+		bool appRunning;
 	};
 }
 
