@@ -19,5 +19,7 @@ int main(int argc, char** argv) {
 		Sleep(1);
 	}
 
+	delete app;
+	std::cin;
 	return 0;
 }
