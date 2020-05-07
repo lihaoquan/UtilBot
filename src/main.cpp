@@ -14,10 +14,10 @@ int main(int argc, char** argv) {
 	TextCommand* B = new TextCommand("CommandB");
 	app->AddCommand(B);
 
-	// TODO if command matches command name, it handles it and executes the function.
-
 	while (app->appRunning) {
-		std::cin >> app->command;
+
+		std::getline(std::cin, app->command);
+
 		app->ProcessCommand();
 
 		app->appRunning = false;
