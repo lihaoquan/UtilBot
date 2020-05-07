@@ -1,15 +1,14 @@
 #include "App.h"
-#include "Log.h"
 
 namespace UtilBot {
 
 	App::App() {
 		appRunning = true;
-		command = new char();
 	}
 
 	App::~App() {
-		delete command;
+		for (Command* c : availableCommands) delete c;
+		availableCommands.clear();
 	}
 
 	void App::Start() {
@@ -21,5 +20,17 @@ namespace UtilBot {
 	void App::ProcessCommand()
 	{
 		CORE_INFO("Command Received: {0}", command);
+
+		for (int i = 0; i < availableCommands.size(); i++) {
+			if (availableCommands[i]->GetCommandName() == command) {
+				availableCommands[i]->Execute();
+				break;
+			}
+		}
+	}
+
+	void App::AddCommand(Command* c)
+	{
+		availableCommands.push_back(c);
 	}
 }

@@ -1,14 +1,19 @@
 #pragma once
+
+#include <string>
+
 class Command
 {
+protected:
+	std::string command_name = 0;
 public:
-	Command(char* name) :
+	Command(std::string name) :
 		command_name(name) {}
-	char* GetCommandName() {
+
+	std::string GetCommandName() {
 		return command_name;
 	}
+
 	virtual void Execute() = 0;
-private:
-	char* command_name;
 };
 

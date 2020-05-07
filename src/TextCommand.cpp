@@ -2,5 +2,5 @@
 #include <iostream>
 
 void TextCommand::Execute() {
-	std::cout << "hi" << std::endl;
+	std::cout << command_name << "Executed" << std::endl;
 }

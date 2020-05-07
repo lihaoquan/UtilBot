@@ -1,17 +1,21 @@
 #pragma once
 
 #include "Log.h"
+#include "Command.h"
 
 namespace UtilBot {
-	class App
+class App
 	{
 	public:
 		App();
 		~App();
 		void Start();
 		void ProcessCommand();
-		char* command;
+		std::string command;
 		bool appRunning;
+		void AddCommand(Command* c);
+	private:
+		std::vector<Command*> availableCommands;
 	};
 }
 
