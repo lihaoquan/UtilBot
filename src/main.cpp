@@ -8,11 +8,8 @@ int main(int argc, char** argv) {
 	// Initialize app
 	app->Start();
 
-	TextCommand* A = new TextCommand("CommandA");
-	app->AddCommand(A);
-
-	TextCommand* B = new TextCommand("CommandB");
-	app->AddCommand(B);
+	app->AddCommand(new TextCommand("CommandA"));
+	app->AddCommand(new TextCommand("CommandB"));
 
 	while (app->appRunning) {
 
