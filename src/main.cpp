@@ -1,6 +1,9 @@
 #include "Core.h"
 #include <iostream>
 
+#include "MySQL.h"
+
+
 int main(int argc, char** argv) {
 
 	// Create an instance of the app
@@ -11,7 +14,13 @@ int main(int argc, char** argv) {
 	app->AddCommand(new TextCommand("CommandA"));
 	app->AddCommand(new TextCommand("CommandB"));
 
-	while (app->appRunning) {
+	MySQL sql;
+	sql.Init();
+
+	sql.Execute();
+	sql.Execute();
+
+	/*while (app->appRunning) {
 
 		std::getline(std::cin, app->command);
 
@@ -22,7 +31,7 @@ int main(int argc, char** argv) {
 		Sleep(1);
 	}
 
-	delete app;
+	delete app;*/
 
 	std::cin;
 	

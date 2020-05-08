@@ -7,6 +7,7 @@ namespace UtilBot {
 	}
 
 	App::~App() {
+		for (Command* c : availableCommands) delete c;
 		availableCommands.clear();
 	}
 
@@ -30,6 +31,6 @@ namespace UtilBot {
 
 	void App::AddCommand(Command* c)
 	{
-		availableCommands.push_back(std::make_unique<Command>(c));
+		availableCommands.push_back(c);
 	}
 }

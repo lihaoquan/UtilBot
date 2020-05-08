@@ -15,7 +15,7 @@ class App
 		bool appRunning;
 		void AddCommand(Command* c);
 	private:
-		std::vector<std::unique_ptr<Command>> availableCommands;
+		std::vector<Command*> availableCommands;
 	};
 }
 
