@@ -28,40 +28,39 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
   headers from cppconn/ and mysql_driver.h + mysql_util.h
   (and mysql_connection.h). This will reduce your build time!
 */
-#include "mysql_connection.h"
-
-#include <cppconn/driver.h>
-#include <cppconn/exception.h>
-#include <cppconn/resultset.h>
-#include <cppconn/statement.h>
 #include "MySQL.h"
-
-using namespace std;
 
 MySQL::~MySQL()
 {
     delete con;
 }
 
-void MySQL::Init()
+void MySQL::Init(char* db, char* username, char* password)
 {
     try {
         driver = get_driver_instance();
-        con = driver->connect("tcp://127.0.0.1:3306", "root", "");
+        database = db;
+        con = driver->connect("tcp://127.0.0.1:3306", username, password);
     }
-    catch (sql::SQLException& e) {;
-        cout << "# ERR: " << e.what();
-        cout << " (MySQL error code: " << e.getErrorCode();
+    catch (sql::SQLException& e) {
+        CORE_ERROR("ERR: {0}", e.what());
+        CORE_ERROR("(MySQL error code: {0}", e.getErrorCode());
     }
 }
 
-void MySQL::Execute() {
+void MySQL::Execute(std::vector<char*> statements) {
 
+    con->setSchema(database.c_str());
     stmt = con->createStatement();
-    stmt->execute("USE development");
-    stmt->execute("DROP TABLE IF EXISTS test");
-    stmt->execute("CREATE TABLE test(id INT, label CHAR(1))");
-    stmt->execute("INSERT INTO test(id, label) VALUES (1, 'a')");
+
+    try {
+        for (int i = 0; i < statements.size(); i++) {
+            stmt->execute(statements[i]);
+        }
+    } catch (sql::SQLException& e) {
+        CORE_ERROR("ERR: {0}", e.what());
+        CORE_ERROR("(MySQL error code: {0}", e.getErrorCode());
+    }
 
     delete stmt;
 }

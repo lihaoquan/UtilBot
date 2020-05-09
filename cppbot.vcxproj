@@ -137,20 +137,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\App.h" />
+    <ClInclude Include="src\Operations\ReminderOperation.h" />
+    <ClInclude Include="src\Operations\GreetingsOperation.h" />
+    <ClInclude Include="src\Application.h" />
+    <ClInclude Include="src\Operations\ExitOperation.h" />
+    <ClInclude Include="src\Commands\ReminderCommand.h" />
+    <ClInclude Include="src\Bot.h" />
     <ClInclude Include="src\Command.h" />
     <ClInclude Include="src\Core.h" />
     <ClInclude Include="src\Log.h" />
     <ClInclude Include="src\MediaPlayer.h" />
     <ClInclude Include="src\MySQL.h" />
-    <ClInclude Include="src\TextCommand.h" />
+    <ClInclude Include="src\Commands\TextCommand.h" />
+    <ClInclude Include="src\Operation.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\App.cpp" />
+    <ClCompile Include="src\Operations\ReminderOperation.cpp" />
+    <ClCompile Include="src\Operations\GreetingsOperation.cpp" />
+    <ClCompile Include="src\Operations\ExitOperation.cpp" />
+    <ClCompile Include="src\Commands\ReminderCommand.cpp" />
+    <ClCompile Include="src\Bot.cpp" />
     <ClCompile Include="src\Log.cpp" />
     <ClCompile Include="src\MediaPlayer.cpp" />
     <ClCompile Include="src\MySQL.cpp" />
-    <ClCompile Include="src\TextCommand.cpp" />
+    <ClCompile Include="src\Commands\TextCommand.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

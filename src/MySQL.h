@@ -2,6 +2,9 @@
 
 #include <stdlib.h>
 #include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
 
 #include "mysql_connection.h"
 
@@ -10,15 +13,18 @@
 #include <cppconn/resultset.h>
 #include <cppconn/statement.h>
 
+#include "Log.h"
+
 class MySQL
 {
 private:
 	sql::Driver* driver;
 	sql::Connection* con;
 	sql::Statement* stmt;
+	std::string database;
 public:
 	~MySQL();
-	void Init();
-	void Execute();
+	void Init(char* db, char* username, char* password);
+	void Execute(std::vector<char*> statements);
 };
 
