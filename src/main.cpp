@@ -1,8 +1,11 @@
-#include "Bot.h"
+﻿#include "Bot.h"
+#include <string>
 #include <iostream>
-#include <vector>
+#include <codecvt>
 
 int main(int argc, char** argv) {
+	
+	SetConsoleOutputCP(CP_UTF8);
 
 	// Create an instance of the app
 	UtilBot::Bot* app = new UtilBot::Bot;

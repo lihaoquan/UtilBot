@@ -10,6 +10,7 @@
 #include "Operations/ExitOperation.h"
 #include "Operations/GreetingsOperation.h"
 #include "Operations/ReminderOperation.h"
+#include "Operations/Hiragana.h"
 
 #include "MediaPlayer.h"
 #include "MySQL.h"

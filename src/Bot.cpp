@@ -41,6 +41,7 @@ namespace UtilBot {
 	{
 		AddCommand((new TextCommand("hello"))->SetOperation(new GreetingsOperation("Bot Greetings")));
 		AddCommand((new TextCommand("exit"))->SetOperation(new ExitOperation("Exit Program")));
+		AddCommand((new TextCommand("hiragana"))->SetOperation(new Hiragana("Hiragana Test")));
 		AddCommand((new ReminderCommand("reminder"))->SetOperation(new ReminderOperation("Create a Reminder")));	
 	}
 }
