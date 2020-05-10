@@ -154,6 +154,7 @@
     <ClInclude Include="src\MySQL.h" />
     <ClInclude Include="src\Commands\TextCommand.h" />
     <ClInclude Include="src\Operation.h" />
+    <ClInclude Include="src\TimeManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Operations\Hiragana.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="src\MySQL.cpp" />
     <ClCompile Include="src\Commands\TextCommand.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\TimeManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

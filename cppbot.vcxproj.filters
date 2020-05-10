@@ -12,6 +12,7 @@
     <ClCompile Include="src\Operations\GreetingsOperation.cpp" />
     <ClCompile Include="src\Operations\ReminderOperation.cpp" />
     <ClCompile Include="src\Operations\Hiragana.cpp" />
+    <ClCompile Include="src\TimeManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Log.h" />
@@ -28,5 +29,6 @@
     <ClInclude Include="src\Operations\GreetingsOperation.h" />
     <ClInclude Include="src\Operations\ReminderOperation.h" />
     <ClInclude Include="src\Operations\Hiragana.h" />
+    <ClInclude Include="src\TimeManager.h" />
   </ItemGroup>
 </Project>

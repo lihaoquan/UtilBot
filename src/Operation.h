@@ -12,7 +12,7 @@ public:
 	Operation(std::string name) :
 		operation_name(name) {}
 
-	std::string GetOperationName() {
+	inline std::string GetOperationName() {
 		return operation_name;
 	}
 

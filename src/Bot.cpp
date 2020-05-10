@@ -9,15 +9,34 @@ namespace UtilBot {
 
 	void Bot::Start() {
 
+		srand(time(NULL));
+
+		SetConsoleOutputCP(CP_UTF8);
+
 		Log::Init();
 		
-		// Add Commands
 		InitCommands();
 
-		// Initialize MySQL
 		mysql.Init("UtilBot", "root", "");
 		
 		CORE_WARN("App Initialized.");
+	}
+
+	void Bot::GetUserInput()
+	{
+		std::getline(std::cin, this->command);
+
+		std::vector<std::string> args;
+		std::istringstream iss(this->command);
+
+		unsigned i = 0;
+		for (std::string s; iss >> s;) {
+			if (i != 0) args.push_back(s);
+			else this->command = s;
+			++i;
+		}
+
+		this->args = args;
 	}
 
 	void Bot::ProcessCommand()

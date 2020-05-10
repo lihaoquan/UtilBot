@@ -1,5 +1,7 @@
 #pragma once
 
+#include <time.h>
+
 #include "Core.h"
 #include "Application.h"
 
@@ -9,12 +11,13 @@ class Bot : public Application
 	public:
 		~Bot();
 		void Start() override;
+		void GetUserInput();
 		void ProcessCommand();
-		std::string command;
 		void AddCommand(Command* c);
+		std::string command;
 	private:
+		void InitCommands();
 		std::vector<Command*> availableCommands;
 		MySQL mysql;
-		void InitCommands();
 	};
 }

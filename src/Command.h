@@ -18,7 +18,7 @@ public:
 		delete op;
 	}
 
-	std::string GetCommandName() {
+	inline std::string GetCommandName() {
 		return command_name;
 	}
 
