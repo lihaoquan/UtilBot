@@ -8,10 +8,14 @@ void Hiragana::Do(Application& app) {
 	gameOngoing = true;
 
 	while (gameOngoing) {
+		
+		// TODO: display sound and let user guess character.
+		// TODO: random row selection
 
 		std::cout << "[Bot] Which row of Hiragana? " << std::endl;
 		std::cout << "1) agyou" << std::endl;
 		std::cout << "2) kagyou" << std::endl;
+		std::cout << "3) sagyou" << std::endl;
 
 		std::getline(std::cin, row);
 
@@ -29,6 +33,9 @@ void Hiragana::Do(Application& app) {
 		}
 		else if (row == "2") {
 			hiragana = GetRandomHiragana(row::kagyou_row, random);
+		} 
+		else if (row == "3") {
+			hiragana = GetRandomHiragana(row::sagyou_row, random);
 		}
 		else {
 			continue;
@@ -47,6 +54,7 @@ void Hiragana::Do(Application& app) {
 			std::string sound;
 			if (row == "1") sound = agyouSound[random];
 			if (row == "2") sound = kagyouSound[random];
+			if (row == "3") sound = sagyouSound[random];
 
 			if (answer == sound) std::cout << "[Bot] Correct!" << std::endl;
 			else std::cout << "[Bot] Wrong!" << std::endl;
@@ -66,6 +74,9 @@ std::string Hiragana::GetRandomHiragana(row row, int random) {
 	}
 	else if (row == row::kagyou_row) {
 		character = kagyou[random];
+	}
+	else if (row == row::sagyou_row) {
+		character = sagyou[random];
 	}
 
 	return character;
