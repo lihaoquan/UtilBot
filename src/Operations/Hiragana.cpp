@@ -59,8 +59,6 @@ void Hiragana::Do(Application& app) {
 
 std::string Hiragana::GetRandomHiragana(row row, int random) {
 
-	srand(time(NULL));
-
 	std::string character;
 
 	if (row == row::agyou_row) {

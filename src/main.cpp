@@ -1,10 +1,12 @@
 ﻿#include "Bot.h"
 #include <string>
 #include <iostream>
-#include <codecvt>
+#include <time.h>
 
 int main(int argc, char** argv) {
 	
+	srand(time(NULL));
+
 	SetConsoleOutputCP(CP_UTF8);
 
 	// Create an instance of the app
