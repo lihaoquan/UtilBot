@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <vector>
+#include <regex>
 
 #include "../Operation.h"
 #include "../TimeManager.h"

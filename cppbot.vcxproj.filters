@@ -1,34 +1,66 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\Log.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\MediaPlayer.cpp" />
-    <ClCompile Include="src\MySQL.cpp" />
-    <ClCompile Include="src\Commands\TextCommand.cpp" />
-    <ClCompile Include="src\Commands\ReminderCommand.cpp" />
-    <ClCompile Include="src\Operations\ExitOperation.cpp" />
-    <ClCompile Include="src\Bot.cpp" />
-    <ClCompile Include="src\Operations\GreetingsOperation.cpp" />
-    <ClCompile Include="src\Operations\ReminderOperation.cpp" />
-    <ClCompile Include="src\Operations\Hiragana.cpp" />
-    <ClCompile Include="src\TimeManager.cpp" />
+    <Filter Include="Commands">
+      <UniqueIdentifier>{17269CB7-03F3-F6C2-2C0C-E56A18382C51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Operations">
+      <UniqueIdentifier>{A91D7DD3-95D5-BE20-FEDC-977CEAB35911}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Log.h" />
-    <ClInclude Include="src\Core.h" />
-    <ClInclude Include="src\MediaPlayer.h" />
-    <ClInclude Include="src\Command.h" />
-    <ClInclude Include="src\MySQL.h" />
-    <ClInclude Include="src\Commands\TextCommand.h" />
-    <ClInclude Include="src\Commands\ReminderCommand.h" />
-    <ClInclude Include="src\Operation.h" />
-    <ClInclude Include="src\Operations\ExitOperation.h" />
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\Bot.h" />
-    <ClInclude Include="src\Operations\GreetingsOperation.h" />
-    <ClInclude Include="src\Operations\ReminderOperation.h" />
-    <ClInclude Include="src\Operations\Hiragana.h" />
+    <ClInclude Include="src\Command.h" />
+    <ClInclude Include="src\Commands\ReminderCommand.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Commands\TextCommand.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core.h" />
+    <ClInclude Include="src\Log.h" />
+    <ClInclude Include="src\MediaPlayer.h" />
+    <ClInclude Include="src\MySQL.h" />
+    <ClInclude Include="src\Operation.h" />
+    <ClInclude Include="src\Operations\ExitOperation.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Operations\GreetingsOperation.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Operations\Hiragana.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Operations\ReminderOperation.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
     <ClInclude Include="src\TimeManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Bot.cpp" />
+    <ClCompile Include="src\Commands\ReminderCommand.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Commands\TextCommand.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Log.cpp" />
+    <ClCompile Include="src\MediaPlayer.cpp" />
+    <ClCompile Include="src\MySQL.cpp" />
+    <ClCompile Include="src\Operations\ExitOperation.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Operations\GreetingsOperation.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Operations\Hiragana.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Operations\ReminderOperation.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TimeManager.cpp" />
+    <ClCompile Include="src\main.cpp" />
   </ItemGroup>
 </Project>

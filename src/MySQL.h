@@ -25,6 +25,6 @@ private:
 public:
 	~MySQL();
 	void Init(char* db, char* username, char* password);
-	void Execute(std::vector<char*> statements);
+	void Execute(std::vector<std::string> statements);
 };
 

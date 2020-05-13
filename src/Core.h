@@ -2,7 +2,6 @@
 
 #include "Log.h"
 #include "MediaPlayer.h"
-#include "MySQL.h"
 #include "TimeManager.h"
 
 #include "Command.h"

@@ -15,7 +15,7 @@ public:
 
 	void Do(Application& app) override;
 
-	enum class row { agyou_row, kagyou_row, sagyou_row };
+	enum class row { agyou_row, kagyou_row, sagyou_row, tagyou_row };
 
 	std::string GetRandomHiragana(row row, int random);
 private:
@@ -29,4 +29,7 @@ private:
 
 	std::string sagyou[5] = { "さ", "し", "す", "せ", "そ"};
 	std::string sagyouSound[5] = { "sa", "shi", "su", "se", "so" };
+
+	std::string tagyou[5] = { "た", "ち", "つ", "て", "と" };
+	std::string tagyouSound[5] = { "ta", "chi", "tsu", "te", "to" };
 };

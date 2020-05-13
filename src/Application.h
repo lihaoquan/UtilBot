@@ -1,5 +1,7 @@
 #pragma once
 
+#include "MySQL.h"
+
 #include <string>
 #include <vector>
 
@@ -8,4 +10,5 @@ public:
 	bool appRunning;
 	virtual void Start() = 0;
 	std::vector<std::string> args;
+	MySQL mysql;
 };

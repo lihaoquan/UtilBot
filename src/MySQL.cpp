@@ -48,18 +48,33 @@ void MySQL::Init(char* db, char* username, char* password)
     }
 }
 
-void MySQL::Execute(std::vector<char*> statements) {
+void MySQL::Execute(std::vector<std::string> statements) {
 
     con->setSchema(database.c_str());
     stmt = con->createStatement();
 
     try {
+
+        sql::ResultSet* res;
+
         for (int i = 0; i < statements.size(); i++) {
-            stmt->execute(statements[i]);
+            res = stmt->executeQuery(statements[i].c_str());
+            CORE_INFO("SQL statement executed: {0}", statements[i]);
+
+            CORE_INFO("SQL result count: {0}", res->rowsCount());
+
+            if (res->rowsCount() > 0) {
+                while (res->next()) {
+                    CORE_INFO("SQL result: {0}", res->getInt(1));
+                }
+            }
+            else {
+                CORE_INFO("Statement yielded no results");
+            }
         }
     } catch (sql::SQLException& e) {
         CORE_ERROR("ERR: {0}", e.what());
-        CORE_ERROR("(MySQL error code: {0}", e.getErrorCode());
+        CORE_ERROR("MySQL error code: {0}", e.getErrorCode());
     }
 
     delete stmt;

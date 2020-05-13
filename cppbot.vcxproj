@@ -84,13 +84,12 @@
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>winmm.lib;mysqlcppconn.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Dev\cppbot\vendor\mysql\lib64\opt;D:\Dev\cppbot\vendor\mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>vendor\mysql\lib64;vendor\mysql\lib64\vs14;vendor\boost\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -106,14 +105,13 @@
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>winmm.lib;mysqlcppconn.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Dev\cppbot\vendor\mysql\lib64\opt;D:\Dev\cppbot\vendor\mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>vendor\mysql\lib64;vendor\mysql\lib64\vs14;vendor\boost\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -129,46 +127,45 @@
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>winmm.lib;mysqlcppconn.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Dev\cppbot\vendor\mysql\lib64\opt;D:\Dev\cppbot\vendor\mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>vendor\mysql\lib64;vendor\mysql\lib64\vs14;vendor\boost\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Operations\Hiragana.h" />
-    <ClInclude Include="src\Operations\ReminderOperation.h" />
-    <ClInclude Include="src\Operations\GreetingsOperation.h" />
     <ClInclude Include="src\Application.h" />
-    <ClInclude Include="src\Operations\ExitOperation.h" />
-    <ClInclude Include="src\Commands\ReminderCommand.h" />
     <ClInclude Include="src\Bot.h" />
     <ClInclude Include="src\Command.h" />
+    <ClInclude Include="src\Commands\ReminderCommand.h" />
+    <ClInclude Include="src\Commands\TextCommand.h" />
     <ClInclude Include="src\Core.h" />
     <ClInclude Include="src\Log.h" />
     <ClInclude Include="src\MediaPlayer.h" />
     <ClInclude Include="src\MySQL.h" />
-    <ClInclude Include="src\Commands\TextCommand.h" />
     <ClInclude Include="src\Operation.h" />
+    <ClInclude Include="src\Operations\ExitOperation.h" />
+    <ClInclude Include="src\Operations\GreetingsOperation.h" />
+    <ClInclude Include="src\Operations\Hiragana.h" />
+    <ClInclude Include="src\Operations\ReminderOperation.h" />
     <ClInclude Include="src\TimeManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Operations\Hiragana.cpp" />
-    <ClCompile Include="src\Operations\ReminderOperation.cpp" />
-    <ClCompile Include="src\Operations\GreetingsOperation.cpp" />
-    <ClCompile Include="src\Operations\ExitOperation.cpp" />
-    <ClCompile Include="src\Commands\ReminderCommand.cpp" />
     <ClCompile Include="src\Bot.cpp" />
+    <ClCompile Include="src\Commands\ReminderCommand.cpp" />
+    <ClCompile Include="src\Commands\TextCommand.cpp" />
     <ClCompile Include="src\Log.cpp" />
     <ClCompile Include="src\MediaPlayer.cpp" />
     <ClCompile Include="src\MySQL.cpp" />
-    <ClCompile Include="src\Commands\TextCommand.cpp" />
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Operations\ExitOperation.cpp" />
+    <ClCompile Include="src\Operations\GreetingsOperation.cpp" />
+    <ClCompile Include="src\Operations\Hiragana.cpp" />
+    <ClCompile Include="src\Operations\ReminderOperation.cpp" />
     <ClCompile Include="src\TimeManager.cpp" />
+    <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

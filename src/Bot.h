@@ -18,6 +18,5 @@ class Bot : public Application
 	private:
 		void InitCommands();
 		std::vector<Command*> availableCommands;
-		MySQL mysql;
 	};
 }

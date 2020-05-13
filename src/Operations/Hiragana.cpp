@@ -10,12 +10,13 @@ void Hiragana::Do(Application& app) {
 	while (gameOngoing) {
 		
 		// TODO: display sound and let user guess character.
-		// TODO: random row selection
 
 		std::cout << "[Bot] Which row of Hiragana? " << std::endl;
-		std::cout << "1) agyou" << std::endl;
-		std::cout << "2) kagyou" << std::endl;
-		std::cout << "3) sagyou" << std::endl;
+		std::cout << "1) random" << std::endl;
+		std::cout << "2) agyou" << std::endl;
+		std::cout << "3) kagyou" << std::endl;
+		std::cout << "4) sagyou" << std::endl;
+		std::cout << "5) tagyou" << std::endl;
 
 		std::getline(std::cin, row);
 
@@ -28,14 +29,43 @@ void Hiragana::Do(Application& app) {
 		std::string hiragana;
 		int random = rand() % 5;
 
-		if (row == "1") {
-			hiragana = GetRandomHiragana(row::agyou_row, random);
+		std::string* randomRow;
+
+		if (row == "1")	{
+
+			int selectedRow = rand() % 4;
+
+			if (selectedRow == 1) {
+				randomRow = agyou;
+				hiragana = GetRandomHiragana(row::agyou_row, random);
+			}
+			else if (selectedRow == 2) {
+				randomRow = kagyou;
+				hiragana = GetRandomHiragana(row::kagyou_row, random);
+			}
+			else if (selectedRow == 3) {
+				randomRow = sagyou;
+				hiragana = GetRandomHiragana(row::sagyou_row, random);
+			}
+			else if (selectedRow == 4) {
+				randomRow = tagyou;
+				hiragana = GetRandomHiragana(row::tagyou_row, random);
+			}
+			else {
+				continue;
+			}
 		}
 		else if (row == "2") {
+			hiragana = GetRandomHiragana(row::agyou_row, random);
+		}
+		else if (row == "3") {
 			hiragana = GetRandomHiragana(row::kagyou_row, random);
 		} 
-		else if (row == "3") {
+		else if (row == "4") {
 			hiragana = GetRandomHiragana(row::sagyou_row, random);
+		}
+		else if (row == "5") {
+			hiragana = GetRandomHiragana(row::tagyou_row, random);
 		}
 		else {
 			continue;
@@ -52,9 +82,11 @@ void Hiragana::Do(Application& app) {
 		}
 		else {
 			std::string sound;
-			if (row == "1") sound = agyouSound[random];
-			if (row == "2") sound = kagyouSound[random];
-			if (row == "3") sound = sagyouSound[random];
+			if (row == "1") sound = randomRow[random];
+			if (row == "2") sound = agyouSound[random];
+			if (row == "3") sound = kagyouSound[random];
+			if (row == "4") sound = sagyouSound[random];
+			if (row == "5") sound = tagyouSound[random];
 
 			if (answer == sound) std::cout << "[Bot] Correct!" << std::endl;
 			else std::cout << "[Bot] Wrong!" << std::endl;
@@ -77,6 +109,9 @@ std::string Hiragana::GetRandomHiragana(row row, int random) {
 	}
 	else if (row == row::sagyou_row) {
 		character = sagyou[random];
+	}
+	else if (row == row::tagyou_row) {
+		character = tagyou[random];
 	}
 
 	return character;
