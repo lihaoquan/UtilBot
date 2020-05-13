@@ -1,5 +1,5 @@
 #include "GreetingsOperation.h"
 
 void GreetingsOperation::Do(Application& app) {
-	std::wcout << "[Bot] Hello!" << std::endl;
+	std::cout << "[Bot] Hello!" << std::endl;
 }
