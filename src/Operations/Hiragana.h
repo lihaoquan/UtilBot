@@ -17,19 +17,19 @@ public:
 
 	enum class row { agyou_row, kagyou_row, sagyou_row, tagyou_row };
 
-	std::string GetRandomHiragana(row row, int random);
+	wchar_t* GetRandomHiragana(row row, int random);
 private:
 	bool gameOngoing = true;
 
-	std::string agyou[5] = {"あ", "い", "う", "え", "お"};
+	wchar_t* agyou[5] = {L"あ", L"い", L"う", L"え", L"お"};
 	std::string agyouSound[5] = { "a", "i", "u", "e", "o" };
 
-	std::string kagyou[5] = { "か", "き", "く", "け", "こ" };
+	wchar_t* kagyou[5] = { L"か", L"き", L"く", L"け", L"こ" };
 	std::string kagyouSound[5] = { "ka", "ki", "ku", "ke", "ko" };
 
-	std::string sagyou[5] = { "さ", "し", "す", "せ", "そ"};
+	wchar_t* sagyou[5] = { L"さ", L"し", L"す", L"せ", L"そ"};
 	std::string sagyouSound[5] = { "sa", "shi", "su", "se", "so" };
 
-	std::string tagyou[5] = { "た", "ち", "つ", "て", "と" };
+	wchar_t* tagyou[5] = { L"た", L"ち", L"つ", L"て", L"と" };
 	std::string tagyouSound[5] = { "ta", "chi", "tsu", "te", "to" };
 };

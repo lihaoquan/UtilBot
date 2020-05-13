@@ -11,44 +11,44 @@ void Hiragana::Do(Application& app) {
 		
 		// TODO: display sound and let user guess character.
 
-		std::cout << "[Bot] Which row of Hiragana? " << std::endl;
-		std::cout << "1) random" << std::endl;
-		std::cout << "2) agyou" << std::endl;
-		std::cout << "3) kagyou" << std::endl;
-		std::cout << "4) sagyou" << std::endl;
-		std::cout << "5) tagyou" << std::endl;
+		std::wcout << "[Bot] Which row of Hiragana? " << std::endl;
+		std::wcout << "1) random" << std::endl;
+		std::wcout << "2) agyou" << std::endl;
+		std::wcout << "3) kagyou" << std::endl;
+		std::wcout << "4) sagyou" << std::endl;
+		std::wcout << "5) tagyou" << std::endl;
 
 		std::getline(std::cin, row);
 
 		if (row == "exit") {
 			gameOngoing = false;
-			std::cout << "[Bot] Hiragana Test Stopped" << std::endl;
+			std::wcout << "[Bot] Hiragana Test Stopped" << std::endl;
 			return;
 		}
 
-		std::string hiragana;
+		wchar_t* hiragana;
 		int random = rand() % 5;
 
-		std::string* randomRow;
+		std::string* randomRow = agyouSound;
 
 		if (row == "1")	{
 
 			int selectedRow = rand() % 4;
 
-			if (selectedRow == 1) {
-				randomRow = agyou;
+			if (selectedRow == 0) {
+				randomRow = agyouSound;
 				hiragana = GetRandomHiragana(row::agyou_row, random);
 			}
-			else if (selectedRow == 2) {
-				randomRow = kagyou;
+			else if (selectedRow == 1) {
+				randomRow = kagyouSound;
 				hiragana = GetRandomHiragana(row::kagyou_row, random);
 			}
-			else if (selectedRow == 3) {
-				randomRow = sagyou;
+			else if (selectedRow == 2) {
+				randomRow = sagyouSound;
 				hiragana = GetRandomHiragana(row::sagyou_row, random);
 			}
-			else if (selectedRow == 4) {
-				randomRow = tagyou;
+			else if (selectedRow == 3) {
+				randomRow = tagyouSound;
 				hiragana = GetRandomHiragana(row::tagyou_row, random);
 			}
 			else {
@@ -71,35 +71,37 @@ void Hiragana::Do(Application& app) {
 			continue;
 		}
 
-		std::cout << "[Bot] How to pronounce: " << hiragana << std::endl;
+		std::wcout << "[Bot] How to pronounce: ";
+		wprintf(L"%s", hiragana);
+		std::wcout << std::endl;
 
 		std::getline(std::cin, answer);
 		
 		if (answer == "exit") {
 			gameOngoing = false;
-			std::cout << "[Bot] Hiragana Test Stopped" << std::endl;
+			std::wcout << "[Bot] Hiragana Test Stopped" << std::endl;
 			return;
 		}
 		else {
 			std::string sound;
+
 			if (row == "1") sound = randomRow[random];
 			if (row == "2") sound = agyouSound[random];
 			if (row == "3") sound = kagyouSound[random];
 			if (row == "4") sound = sagyouSound[random];
 			if (row == "5") sound = tagyouSound[random];
 
-			if (answer == sound) std::cout << "[Bot] Correct!" << std::endl;
-			else std::cout << "[Bot] Wrong!" << std::endl;
+			if (answer == sound) std::wcout << "[Bot] Correct!" << std::endl;
+			else std::wcout << "[Bot] Wrong!" << std::endl;
 		}
 		
-
 		Sleep(1);
 	}
 }
 
-std::string Hiragana::GetRandomHiragana(row row, int random) {
+wchar_t* Hiragana::GetRandomHiragana(row row, int random) {
 
-	std::string character;
+	wchar_t* character = agyou[random];
 
 	if (row == row::agyou_row) {
 		character = agyou[random];
