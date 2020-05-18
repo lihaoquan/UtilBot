@@ -5,6 +5,8 @@
 #include <string>
 #include <stdlib.h>
 
+// Refer to https://stackoverflow.com/questions/50403342/how-do-i-properly-use-stdstring-on-utf-8-in-c
+
 class Hiragana
 	: public Operation
 {
@@ -15,7 +17,7 @@ public:
 
 	void Do(Application& app) override;
 
-	enum class row { agyou_row, kagyou_row, sagyou_row, tagyou_row };
+	enum class row { agyou_row, kagyou_row, sagyou_row, tagyou_row, nagyou_row };
 
 	std::string GetRandomHiragana(row row, int random);
 private:
@@ -32,4 +34,7 @@ private:
 
 	std::string tagyou[5] = { "た", "ち", "つ", "て", "と" };
 	std::string tagyouSound[5] = { "ta", "chi", "tsu", "te", "to" };
+
+	std::string nagyou[5] = { "な", "に", "ぬ", "ね", "の" };
+	std::string nagyouSound[5] = { "na", "ni", "nu", "ne", "no" };
 };

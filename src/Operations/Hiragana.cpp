@@ -17,6 +17,7 @@ void Hiragana::Do(Application& app) {
 		std::cout << "3) kagyou" << std::endl;
 		std::cout << "4) sagyou" << std::endl;
 		std::cout << "5) tagyou" << std::endl;
+		std::cout << "6) nagyou" << std::endl;
 
 		std::getline(std::cin, row);
 
@@ -33,23 +34,27 @@ void Hiragana::Do(Application& app) {
 
 		if (row == "1")	{
 
-			int selectedRow = rand() % 4;
+			int selectedRow = rand() % 5;
 
-			if (selectedRow == 1) {
-				randomRow = agyou;
+			if (selectedRow == 0) {
+				randomRow = agyouSound;
 				hiragana = GetRandomHiragana(row::agyou_row, random);
 			}
-			else if (selectedRow == 2) {
-				randomRow = kagyou;
+			else if (selectedRow == 1) {
+				randomRow = kagyouSound;
 				hiragana = GetRandomHiragana(row::kagyou_row, random);
 			}
-			else if (selectedRow == 3) {
-				randomRow = sagyou;
+			else if (selectedRow == 2) {
+				randomRow = sagyouSound;
 				hiragana = GetRandomHiragana(row::sagyou_row, random);
 			}
-			else if (selectedRow == 4) {
-				randomRow = tagyou;
+			else if (selectedRow == 3) {
+				randomRow = tagyouSound;
 				hiragana = GetRandomHiragana(row::tagyou_row, random);
+			}
+			else if (selectedRow == 4) {
+				randomRow = nagyouSound;
+				hiragana = GetRandomHiragana(row::nagyou_row, random);
 			}
 			else {
 				continue;
@@ -66,6 +71,9 @@ void Hiragana::Do(Application& app) {
 		}
 		else if (row == "5") {
 			hiragana = GetRandomHiragana(row::tagyou_row, random);
+		}
+		else if (row == "6") {
+			hiragana = GetRandomHiragana(row::nagyou_row, random);
 		}
 		else {
 			continue;
@@ -87,6 +95,7 @@ void Hiragana::Do(Application& app) {
 			if (row == "3") sound = kagyouSound[random];
 			if (row == "4") sound = sagyouSound[random];
 			if (row == "5") sound = tagyouSound[random];
+			if (row == "6") sound = nagyouSound[random];
 
 			if (answer == sound) std::cout << "[Bot] Correct!" << std::endl;
 			else std::cout << "[Bot] Wrong!" << std::endl;
@@ -112,6 +121,9 @@ std::string Hiragana::GetRandomHiragana(row row, int random) {
 	}
 	else if (row == row::tagyou_row) {
 		character = tagyou[random];
+	}
+	else if (row == row::nagyou_row) {
+		character = nagyou[random];
 	}
 
 	return character;
