@@ -10,6 +10,7 @@ void Hiragana::Do(Application& app) {
 	while (gameOngoing) {
 		
 		// TODO: display sound and let user guess character.
+		//       scoring system
 
 		std::cout << "[Bot] Which row of Hiragana? " << std::endl;
 		std::cout << "1) random" << std::endl;
